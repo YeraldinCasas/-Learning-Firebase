@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Firebase</title>
+  </head>
+  <body>
+    <h1>Registro</h1>
+    <input type="email" id="email" placeholder="Escribe aquí tu email" />
+    <input type="password" id="pass" placeholder="Escribe aquí tu contraseña" />
+    <button onclick="send()">Enviar</button>
+    <h1 id="login"></h1>
+    <h1>Acceso</h1>
+    <input type="email" id="emailA" placeholder="Escribe aquí tu email" />
+    <input
+      type="password"
+      id="passA"
+      placeholder="Escribe aquí tu contraseña"
+    />
+    <button onclick="access()">Acceso</button>
+    <h1 id="login"></h1>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-auth.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-analytics.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCOvZY_1hAReFJsM4sor63rPigJTuohJ9Y",
+        authDomain: "aprendiendo-firebase-eca7f.firebaseapp.com",
+        databaseURL: "https://aprendiendo-firebase-eca7f.firebaseio.com",
+        projectId: "aprendiendo-firebase-eca7f",
+        storageBucket: "aprendiendo-firebase-eca7f.appspot.com",
+        messagingSenderId: "1069304064264",
+        appId: "1:1069304064264:web:419e8096384104487ae4bd",
+        measurementId: "G-F5D92ZSE19",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>
