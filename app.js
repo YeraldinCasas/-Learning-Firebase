@@ -24,8 +24,10 @@ firebase.auth().onAuthStateChanged(function (user) {
     var isAnonymous = user.isAnonymous;
     var uid = user.uid;
     var providerData = user.providerData;
-    document.getElementById("login").innerHTML =
-      "Registrado" + " " + user.email;
+    document.getElementById("login").innerHTML = 
+    `<p>Registrado `+user.email+`<p>
+    <button onclick="closes()">Cerrar sesión</button>
+    `;
     console.log(user);
     // ...
   } else {
@@ -34,6 +36,17 @@ firebase.auth().onAuthStateChanged(function (user) {
     document.getElementById("login").innerHTML = "No registrado";
   }
 });
+
+function closes(){
+  firebase.auth().signOut()
+  .then(function(){
+    console.log('Salir');
+  })
+  .catch(function(error){
+    console.log(error);
+  })
+ }
+
 
 function access() {
   var emailA = document.getElementById("emailA").value;
@@ -50,3 +63,4 @@ function access() {
       alert(errorMessage);
     });
 }
+
