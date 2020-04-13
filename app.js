@@ -11,7 +11,19 @@ function send() {
       var errorMessage = error.message;
       // ...
       alert(errorMessage);
+    }).then(function(){
+      verifyEmail();
     });
+}
+
+function verifyEmail(){
+  var user = firebase.auth().currentUser;
+
+user.sendEmailVerification().then(function() {
+  // Email sent.
+}).catch(function(error) {
+  // An error happened.
+});
 }
 
 firebase.auth().onAuthStateChanged(function (user) {
@@ -23,9 +35,16 @@ firebase.auth().onAuthStateChanged(function (user) {
     var photoURL = user.photoURL;
     var isAnonymous = user.isAnonymous;
     var uid = user.uid;
+    var textVerified="";
+    if(emailVerified===false){
+      textVerified="Email no verificado";
+    }
+    else{
+      textVerified="Email verificado";
+    }
     var providerData = user.providerData;
     document.getElementById("login").innerHTML = 
-    `<p>Registrado `+user.email+`<p>
+    `<p>Registrado `+ user.email+ ` `+textVerified +`<p>
     <button onclick="closes()">Cerrar sesión</button>
     `;
     console.log(user);
